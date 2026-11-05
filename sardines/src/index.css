@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+}
+
 :root {
   color-scheme: dark;
 }
@@ -12,8 +17,93 @@ body,
   height: 100%;
   overflow: hidden;
   background: #04121c;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+.font-display {
+  font-family: var(--font-display);
+}
+
+.vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 6, 12, 0.45) 100%);
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+/* range input */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+.range:focus-visible {
+  outline: none;
+}
+.range::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, rgba(125, 211, 252, 0.8) var(--pct), rgba(255, 255, 255, 0.12) var(--pct));
+}
+.range::-moz-range-track {
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.range::-moz-range-progress {
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(125, 211, 252, 0.8);
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -5.5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.25);
+}
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: #e0f2fe;
+}
+.range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.6);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

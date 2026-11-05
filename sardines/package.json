@@ -1,19 +1,17 @@
 {
-  "name": "sardines",
+  "name": "sardine-school",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "headless": "node --experimental-strip-types scripts/headless.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
-    "@types/three": "^0.187.0",
-    "leva": "^0.10.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "three": "^0.187.0",
@@ -24,9 +22,8 @@
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
     "@vitejs/plugin-react": "^6.1.2",
-    "autoprefixer": "^10.6.2",
-    "oxlint": "^1.89.0",
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.4",
     "typescript": "~7.0.2",
